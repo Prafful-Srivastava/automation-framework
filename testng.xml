@@ -1,0 +1,25 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="AutomationSuite" parallel="tests" thread-count="2">
+
+    <!-- Register Listener here -->
+    <listeners>
+        <listener class-name="com.example.util.TestListener"/>
+        <listener class-name="com.example.util.RetryListener"/>
+    </listeners>
+
+    <!-- Define your test classes -->
+    <test name="LoginTests">
+        <classes>
+            <class name="com.example.tests.LoginTest"/>
+            <!-- Add more test classes here -->
+            <!-- <class name="com.example.tests.HomePageTest"/> -->
+        </classes>
+    </test>
+
+     <test name="HomeTest">
+        <classes>
+            <class name="com.example.tests.HomeTest"/>
+        </classes>
+    </test>
+
+</suite>
