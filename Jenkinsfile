@@ -21,7 +21,7 @@ pipeline {
                 // Ensure Hub is ready before running tests
                 sh '''
                   echo "Waiting for Selenium Hub to be ready..."
-                  until curl -s http://localhost:4444/wd/hub/status | grep -q '"ready":true'; do
+                  until curl -s http://localhost:4444/status | grep -q '"ready":true'; do
                     sleep 2
                   done
                 '''
