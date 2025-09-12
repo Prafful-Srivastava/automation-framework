@@ -31,22 +31,22 @@ pipeline {
         }
 
         stage('Wait for Selenium Hub') {
-            steps {
-                script {
-                    timeout(time: 60, unit: 'SECONDS') {
-                        sh '''
-                          echo "Waiting for Selenium Hub..."
-                          until curl -s http://localhost:4444/status | tee hub_status.json | grep -q '"ready":true'; do
-                            echo "Current Hub status:"
-                            cat hub_status.json
-                            sleep 2
-                          done
-                          echo "Selenium Hub is ready!"
-                        '''
-                    }
-                }
+    steps {
+        script {
+            timeout(time: 60, unit: 'SECONDS') {
+                sh '''
+                  echo "Waiting for Selenium Hub..."
+                  until [ "$(curl -s http://localhost:4444/status | jq -r '.value.ready')" = "true" ]; do
+                    echo "Hub not ready yet..."
+                    sleep 2
+                  done
+                  echo "Selenium Hub is ready!"
+                '''
             }
         }
+    }
+}
+
 
         stage('Run Tests on Grid') {
             steps {
