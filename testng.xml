@@ -10,7 +10,7 @@
     <!-- Define your test classes -->
     <test name="LoginTests">
         <classes>
-            <class name="com.example.tests.LoginTest"/>
+            <class name="com.example.LoginTest"/>
             <!-- Add more test classes here -->
             <!-- <class name="com.example.tests.HomePageTest"/> -->
         </classes>
@@ -18,7 +18,7 @@
 
      <test name="HomeTest">
         <classes>
-            <class name="com.example.tests.HomeTest"/>
+            <class name="com.example.HomeTest"/>
         </classes>
     </test>
 

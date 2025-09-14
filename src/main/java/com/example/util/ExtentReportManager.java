@@ -28,6 +28,7 @@ public class ExtentReportManager {
 
     //Initializes a new test in the report.
     public static void startTest(String testName){
+      System.out.println("Creating ExtentTest for: " + testName);
       ExtentTest test = extent.createTest(testName);
       extentTest.set(test); //stores the test in a ThreadLocal variable.
     }
