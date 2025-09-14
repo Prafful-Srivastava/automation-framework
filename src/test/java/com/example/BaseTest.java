@@ -26,7 +26,7 @@ public class BaseTest {
     ConfigManager config = ConfigManager.getInstance();
     baseUrl = config.getBaseUrl();
     //browser = config.getBrowser();
-    String reportPath = System.getProperty("user.dir") + "/reports/ExtentReport.html";
+    String reportPath = System.getProperty("user.dir") + "/target/extent-report/index.html";
     ExtentReportManager.createInstance(reportPath);
   }
 
