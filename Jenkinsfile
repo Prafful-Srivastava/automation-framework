@@ -63,6 +63,16 @@ pipeline {
 
             echo "Publishing TestNG (JUnit XML) results..."
             junit 'target/surefire-reports/*.xml'
+
+            echo "Publishing Extent Report..."
+            publishHTML (target: [
+                reportName: 'Extent Report',
+                reportDir: 'target/extent-report',
+                reportFiles: 'index.html',
+                keepAll: true,
+                alwaysLinkToLastBuild: true,
+                allowMissing: false
+            ])
         }
     }
 }
